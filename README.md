@@ -67,3 +67,16 @@ Shortcut: `Ctrl+’`
 7. __Trimmer__: For cleaning up whitespace  
 Shortcut: Trim Trailing Whitespace: `Ctrl+Alt+S`  
 ![screenshot](Other_Assets/trimmer.png "")
+
+## Sublime Text
+A couple of Sublime Text features that I would like to emphasize:
+
+1. Sublime Text has a Side Bar that acts as a file browser. You can drag folders and files onto this Side Bar and __browse/preview processes and rules without ever leaving the editor__.
+2.	It includes a Minimap that displays the open file and allows for very quick navigation (faster than scrolling).
+3.	A feature that makes it rather unique is “multiple cursors”.  
+  a. `Alt+F3` gives a really simple way to do find and replace: Use it to select all occurrences of the current word or selection, then just start typing to replace or edit them all at once.  
+  b. Use multiple selections to edit in more than one place at once. It works as a quick substitute for find and replace, or to apply the same sequence of changes to multiple lines simultaneously.  
+  To select multiple regions using the keyboard, select a block of text, then press `Ctrl+Shift+L` to split it into one selection per line.
+4. __Toggle Comment__ (works on multiple lines)  
+Shortcut: `Ctrl+/`  
+![screenshot](Other_Assets/comment.png "")
