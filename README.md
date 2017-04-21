@@ -6,7 +6,7 @@ IBM Cognos TM1 syntax highlighting for Sublime Text
 ## Installation
 1. Get Sublime Text [here](https://www.sublimetext.com/3)
 2. Copy folder __TM1__ to `..\Sublime Text\Data\Packages\User\TM1`
-3. Copy the two files in folder __RegReplace__ to `..Sublime Text\Data\Packages\User` (reguires RegReplace Sublime Text Package)
+3. Copy the two files in folder __RegReplace__ to `..Sublime Text\Data\Packages\User` (requires RegReplace Sublime Text Package)
 
 ## Usage
 1. Change color scheme to TM1: `Preferences >> Color Scheme >> User >> TM1 >> TM1_Sublime`  
