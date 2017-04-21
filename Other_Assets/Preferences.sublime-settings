@@ -1,0 +1,11 @@
+{
+	"color_scheme": "Packages/User/TM1/TM1_Sublime.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Input",
+	"font_size": 9,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"trim_trailing_white_space_on_save": true
+}
