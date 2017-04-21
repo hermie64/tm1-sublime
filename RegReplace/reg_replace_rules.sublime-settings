@@ -1,0 +1,2236 @@
+{
+    /*
+    name:               (str): Rule name.  Required.
+
+    find:               (str): Regular expression pattern or literal string.
+                        Use (?i) for case insensitive. Use (?s) for dotall.
+                        See https://docs.python.org/3.4/library/re.html for more info on regex flags.
+                        Required unless "scope" is defined.
+
+    replace:            (str - default=r'\0'): Replace pattern.
+
+    literal:            (bool - default=False): Preform a non-regex, literal search and replace.
+
+    literal_ignorecase: (bool - default=False): Ignore case when "literal" is true.
+
+    scope:              (str): Scope to search for and to apply optional regex to.
+                        Required unless "find" is defined.
+
+    scope_filter:       ([str] - default=[]): An array of scope qualifiers for the match.
+                        Only used when "scope" is not defined.
+
+                        - Any instance of scope qualifies match: scope.name
+                        - Entire match of scope qualifies match: !scope.name
+                        - Any instance of scope disqualifies match: -scope.name
+                        - Entire match of scope disqualifies match: -!scope.name
+
+    greedy:             (bool - default=True): Apply action to all instances (find all).
+                        Used when "find" is defined.
+
+    greedy_scope:       (bool - default=True): Find all the scopes specified by "scope."
+
+    multi_pass:         (bool - default=False): Perform multiple sweeps on the scope region to find
+                        and replace all instances of the regex when regex cannot be formatted to find
+                        all instances.  Since a replace can change a scope, this can be useful.
+
+    plugin:             (str): Define replace plugin for more advanced replace logic.
+                        Only used for regex replaces and replace.
+
+    args:               (dict): Arguments for 'plugin'.
+                        Only used for regex replaces and replace.
+
+    ----------------------------------------------------
+
+    ###### Regex with optional scope qualifiers. ######
+    - find (required)
+    - replace
+    - literal
+    - literal_ignorecase
+    - greedy
+    - scope_filter
+    - plugin
+    - args
+
+    ###### Scope search with regex applied to scope region. ######
+    - scope (required)
+    - find
+    - replace
+    - literal
+    - literal_ignorecase
+    - greedy
+    - greedy_scope
+    - multi_pass
+    - plugn
+    - args
+
+    */
+    // TM1
+    "format": "3.0",
+    "replacements": {
+        // TM1 Functions Strict
+        "DATE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDATE\\b",
+            "replace": "DATE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DATES": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDATES\\b",
+            "replace": "DATES",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DAY": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDAY\\b",
+            "replace": "DAY",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DAYNO": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDAYNO\\b",
+            "replace": "DAYNO",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MONTH": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bMONTH\\b",
+            "replace": "MONTH",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TIMST": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTIMST\\b",
+            "replace": "TIMST",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TIMVL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTIMVL\\b",
+            "replace": "TIMVL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TODAY": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTODAY\\b",
+            "replace": "TODAY",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "YEAR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bYEAR\\b",
+            "replace": "YEAR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ATTRN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bATTRN\\b",
+            "replace": "ATTRN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ATTRS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bATTRS\\b",
+            "replace": "ATTRS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidateChildren": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidateChildren\\b",
+            "replace": "ConsolidateChildren",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DIMNM": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDIMNM\\b",
+            "replace": "DIMNM",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DIMSIZ": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDIMSIZ\\b",
+            "replace": "DIMSIZ",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DNEXT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDNEXT\\b",
+            "replace": "DNEXT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DNLEV": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDNLEV\\b",
+            "replace": "DNLEV",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TABDIM": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTABDIM\\b",
+            "replace": "TABDIM",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DIMIX": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDIMIX\\b",
+            "replace": "DIMIX",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DTYPE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDTYPE\\b",
+            "replace": "DTYPE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELCOMP": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELCOMP\\b",
+            "replace": "ELCOMP",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELCOMPN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELCOMPN\\b",
+            "replace": "ELCOMPN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELISPAR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELISPAR\\b",
+            "replace": "ELISPAR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELLEV": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELLEV\\b",
+            "replace": "ELLEV",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELPAR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELPAR\\b",
+            "replace": "ELPAR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELPARN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELPARN\\b",
+            "replace": "ELPARN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELWEIGHT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELWEIGHT\\b",
+            "replace": "ELWEIGHT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FV": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bFV\\b",
+            "replace": "FV",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "PAYMT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bPAYMT\\b",
+            "replace": "PAYMT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "PV": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bPV\\b",
+            "replace": "PV",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ABS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bABS\\b",
+            "replace": "ABS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ACOS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bACOS\\b",
+            "replace": "ACOS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ASIN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bASIN\\b",
+            "replace": "ASIN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ATAN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bATAN\\b",
+            "replace": "ATAN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "COS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCOS\\b",
+            "replace": "COS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "EXP": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bEXP\\b",
+            "replace": "EXP",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "INT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bINT\\b",
+            "replace": "INT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ISUND": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bISUND\\b",
+            "replace": "ISUND",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "LN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bLN\\b",
+            "replace": "LN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "LOG": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bLOG\\b",
+            "replace": "LOG",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MAX": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bMAX\\b",
+            "replace": "MAX",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MIN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bMIN\\b",
+            "replace": "MIN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MOD": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bMOD\\b",
+            "replace": "MOD",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RAND": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRAND\\b",
+            "replace": "RAND",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ROUND": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bROUND\\b",
+            "replace": "ROUND",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ROUNDP": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bROUNDP\\b",
+            "replace": "ROUNDP",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SIGN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSIGN\\b",
+            "replace": "SIGN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SIN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSIN\\b",
+            "replace": "SIN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SQRT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSQRT\\b",
+            "replace": "SQRT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TAN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTAN\\b",
+            "replace": "TAN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CAPIT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCAPIT\\b",
+            "replace": "CAPIT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CHAR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCHAR\\b",
+            "replace": "CHAR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CODE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCODE\\b",
+            "replace": "CODE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DELET": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDELET\\b",
+            "replace": "DELET",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FILL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bFILL\\b",
+            "replace": "FILL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "INSRT": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bINSRT\\b",
+            "replace": "INSRT",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "LONG": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bLONG\\b",
+            "replace": "LONG",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "LOWER": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bLOWER\\b",
+            "replace": "LOWER",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NUMBR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bNUMBR\\b",
+            "replace": "NUMBR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SCAN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSCAN\\b",
+            "replace": "SCAN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "STR": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSTR\\b",
+            "replace": "STR",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SUBST": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSUBST\\b",
+            "replace": "SUBST",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TRIM": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTRIM\\b",
+            "replace": "TRIM",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "UPPER": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bUPPER\\b",
+            "replace": "UPPER",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ASCIIDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bASCIIDelete\\b",
+            "replace": "ASCIIDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ASCIIOutput": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bASCIIOutput\\b",
+            "replace": "ASCIIOutput",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetInputCharacterSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSetInputCharacterSet\\b",
+            "replace": "SetInputCharacterSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetOutputCharacterSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSetOutputCharacterSet\\b",
+            "replace": "SetOutputCharacterSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TextOutput": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTextOutput\\b",
+            "replace": "TextOutput",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AttrDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAttrDelete\\b",
+            "replace": "AttrDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AttrInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAttrInsert\\b",
+            "replace": "AttrInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AttrPutN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAttrPutN\\b",
+            "replace": "AttrPutN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AttrPutS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAttrPutS\\b",
+            "replace": "AttrPutS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetChoreVerboseMessages": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSetChoreVerboseMessages\\b",
+            "replace": "SetChoreVerboseMessages",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AddCubeDependency": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAddCubeDependency\\b",
+            "replace": "AddCubeDependency",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellGetN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellGetN\\b",
+            "replace": "CellGetN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellGetS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellGetS\\b",
+            "replace": "CellGetS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellIsUpdateable": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellIsUpdateable\\b",
+            "replace": "CellIsUpdateable",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellPutN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellPutN\\b",
+            "replace": "CellPutN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellPutProportionalSpread": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellPutProportionalSpread\\b",
+            "replace": "CellPutProportionalSpread",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellPutS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellPutS\\b",
+            "replace": "CellPutS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeClearData": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeClearData\\b",
+            "replace": "CubeClearData",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeCreate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeCreate\\b",
+            "replace": "CubeCreate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDestroy\\b",
+            "replace": "CubeDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeExists\\b",
+            "replace": "CubeExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeGetLogChanges": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeGetLogChanges\\b",
+            "replace": "CubeGetLogChanges",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeSetConnParams": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeSetConnParams\\b",
+            "replace": "CubeSetConnParams",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeSetLogChanges": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeSetLogChanges\\b",
+            "replace": "CubeSetLogChanges",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeUnload": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeUnload\\b",
+            "replace": "CubeUnload",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDataReservationAcquire": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDataReservationAcquire\\b",
+            "replace": "CubeDataReservationAcquire",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDataReservationRelease": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDataReservationRelease\\b",
+            "replace": "CubeDataReservationRelease",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDataReservationReleaseAll": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDataReservationReleaseAll\\b",
+            "replace": "CubeDataReservationReleaseAll",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDataReservationGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDataReservationGet\\b",
+            "replace": "CubeDataReservationGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeDataReservationGetConflicts": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeDataReservationGetConflicts\\b",
+            "replace": "CubeDataReservationGetConflicts",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionCreate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionCreate\\b",
+            "replace": "DimensionCreate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionDeleteAllElements": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionDeleteAllElements\\b",
+            "replace": "DimensionDeleteAllElements",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionDestroy\\b",
+            "replace": "DimensionDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementComponentAdd": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementComponentAdd\\b",
+            "replace": "DimensionElementComponentAdd",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementComponentDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementComponentDelete\\b",
+            "replace": "DimensionElementComponentDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementDelete\\b",
+            "replace": "DimensionElementDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementInsert\\b",
+            "replace": "DimensionElementInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementPrincipalName": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementPrincipalName\\b",
+            "replace": "DimensionElementPrincipalName",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionExists\\b",
+            "replace": "DimensionExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionSortOrder": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionSortOrder\\b",
+            "replace": "DimensionSortOrder",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ODBCClose": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bODBCClose\\b",
+            "replace": "ODBCClose",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ODBCOpen": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bODBCOpen\\b",
+            "replace": "ODBCOpen",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ODBCOPENEx": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bODBCOPENEx\\b",
+            "replace": "ODBCOPENEx",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ODBCOutput": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bODBCOutput\\b",
+            "replace": "ODBCOutput",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ExecuteCommand": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bExecuteCommand\\b",
+            "replace": "ExecuteCommand",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ExecuteProcess": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bExecuteProcess\\b",
+            "replace": "ExecuteProcess",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitByChoreQuit": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitByChoreQuit\\b",
+            "replace": "ProcessExitByChoreQuit",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitNormal": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitNormal\\b",
+            "replace": "ProcessExitNormal",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitMinorError": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitMinorError\\b",
+            "replace": "ProcessExitMinorError",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitByQuit": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitByQuit\\b",
+            "replace": "ProcessExitByQuit",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitWithMessage": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitWithMessage\\b",
+            "replace": "ProcessExitWithMessage",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitSeriousError": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitSeriousError\\b",
+            "replace": "ProcessExitSeriousError",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitOnInit": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitOnInit\\b",
+            "replace": "ProcessExitOnInit",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessExitByBreak": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bProcessExitByBreak\\b",
+            "replace": "ProcessExitByBreak",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "GetProcessName": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bGetProcessName\\b",
+            "replace": "GetProcessName",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ItemReject": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bItemReject\\b",
+            "replace": "ItemReject",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeProcessFeeders": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeProcessFeeders\\b",
+            "replace": "CubeProcessFeeders",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ForceSkipCheck": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bForceSkipCheck\\b",
+            "replace": "ForceSkipCheck",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RuleLoadFromFile": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRuleLoadFromFile\\b",
+            "replace": "RuleLoadFromFile",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerActiveSandboxGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerActiveSandboxGet\\b",
+            "replace": "ServerActiveSandboxGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerActiveSandboxSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerActiveSandboxSet\\b",
+            "replace": "ServerActiveSandboxSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "GetUseActiveSandboxProperty": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bGetUseActiveSandboxProperty\\b",
+            "replace": "GetUseActiveSandboxProperty",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetUseActiveSandboxProperty": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSetUseActiveSandboxProperty\\b",
+            "replace": "SetUseActiveSandboxProperty",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AddClient": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAddClient\\b",
+            "replace": "AddClient",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AddGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAddGroup\\b",
+            "replace": "AddGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AssignClientToGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAssignClientToGroup\\b",
+            "replace": "AssignClientToGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AssignClientPassword": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAssignClientPassword\\b",
+            "replace": "AssignClientPassword",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DeleteClient": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDeleteClient\\b",
+            "replace": "DeleteClient",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DeleteGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDeleteGroup\\b",
+            "replace": "DeleteGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ElementSecurityGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bElementSecurityGet\\b",
+            "replace": "ElementSecurityGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ElementSecurityPut": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bElementSecurityPut\\b",
+            "replace": "ElementSecurityPut",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RemoveClientFromGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRemoveClientFromGroup\\b",
+            "replace": "RemoveClientFromGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "BatchUpdateFinish": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bBatchUpdateFinish\\b",
+            "replace": "BatchUpdateFinish",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "BatchUpdateFinishWait": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bBatchUpdateFinishWait\\b",
+            "replace": "BatchUpdateFinishWait",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DisableBulkLoadMode": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDisableBulkLoadMode\\b",
+            "replace": "DisableBulkLoadMode",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "EnableBulkLoadMode": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bEnableBulkLoadMode\\b",
+            "replace": "EnableBulkLoadMode",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerShutdown": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerShutdown\\b",
+            "replace": "ServerShutdown",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetAliasSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetAliasSet\\b",
+            "replace": "SubsetAliasSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetCreate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetCreate\\b",
+            "replace": "SubsetCreate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetCreateByMDX": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetCreateByMDX\\b",
+            "replace": "SubsetCreateByMDX",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetDeleteAllElements": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetDeleteAllElements\\b",
+            "replace": "SubsetDeleteAllElements",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetDestroy\\b",
+            "replace": "SubsetDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetElementDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetElementDelete\\b",
+            "replace": "SubsetElementDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetElementInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetElementInsert\\b",
+            "replace": "SubsetElementInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetExists\\b",
+            "replace": "SubsetExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetExpandAboveSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetExpandAboveSet\\b",
+            "replace": "SubsetExpandAboveSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetFormatStyleSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetFormatStyleSet\\b",
+            "replace": "SubsetFormatStyleSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetGetElementName": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetGetElementName\\b",
+            "replace": "SubsetGetElementName",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetGetSize": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetGetSize\\b",
+            "replace": "SubsetGetSize",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetIsAllSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetIsAllSet\\b",
+            "replace": "SubsetIsAllSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetMDXGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetMDXGet\\b",
+            "replace": "SubsetMDXGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SubsetMDXSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSubsetMDXSet\\b",
+            "replace": "SubsetMDXSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "PublishView": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bPublishView\\b",
+            "replace": "PublishView",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewColumnDimensionSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewColumnDimensionSet\\b",
+            "replace": "ViewColumnDimensionSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewColumnSuppressZeroesSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewColumnSuppressZeroesSet\\b",
+            "replace": "ViewColumnSuppressZeroesSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewConstruct": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewConstruct\\b",
+            "replace": "ViewConstruct",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewCreate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewCreate\\b",
+            "replace": "ViewCreate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewDestroy\\b",
+            "replace": "ViewDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewExists\\b",
+            "replace": "ViewExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewExtractSkipCalcsSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewExtractSkipCalcsSet\\b",
+            "replace": "ViewExtractSkipCalcsSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewExtractSkipConsolidatedStringsSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewExtractSkipConsolidatedStringsSet\\b",
+            "replace": "ViewExtractSkipConsolidatedStringsSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewExtractSkipRuleValuesSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewExtractSkipRuleValuesSet\\b",
+            "replace": "ViewExtractSkipRuleValuesSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewExtractSkipZeroesSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewExtractSkipZeroesSet\\b",
+            "replace": "ViewExtractSkipZeroesSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewRowDimensionSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewRowDimensionSet\\b",
+            "replace": "ViewRowDimensionSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewRowSuppressZeroesSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewRowSuppressZeroesSet\\b",
+            "replace": "ViewRowSuppressZeroesSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewSubsetAssign": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewSubsetAssign\\b",
+            "replace": "ViewSubsetAssign",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewSuppressZeroesSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewSuppressZeroesSet\\b",
+            "replace": "ViewSuppressZeroesSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewTitleDimensionSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewTitleDimensionSet\\b",
+            "replace": "ViewTitleDimensionSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewTitleElementSet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewTitleElementSet\\b",
+            "replace": "ViewTitleElementSet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ViewZeroOut": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bViewZeroOut\\b",
+            "replace": "ViewZeroOut",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AddInfoCubeRestriction": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAddInfoCubeRestriction\\b",
+            "replace": "AddInfoCubeRestriction",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "Expand": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bExpand\\b",
+            "replace": "Expand",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FileExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bFileExists\\b",
+            "replace": "FileExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NumberToString": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bNumberToString\\b",
+            "replace": "NumberToString",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NumberToStringEx": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bNumberToStringEx\\b",
+            "replace": "NumberToStringEx",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RefreshMdxHierarchy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRefreshMdxHierarchy\\b",
+            "replace": "RefreshMdxHierarchy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "StringToNumber": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bStringToNumber\\b",
+            "replace": "StringToNumber",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "StringToNumberEx": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bStringToNumberEx\\b",
+            "replace": "StringToNumberEx",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TM1User": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bTM1User\\b",
+            "replace": "TM1User",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "WildcardFileSearch": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bWildcardFileSearch\\b",
+            "replace": "WildcardFileSearch",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DB": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDB\\b",
+            "replace": "DB",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeSaveData": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeSaveData\\b",
+            "replace": "CubeSaveData",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "Synchronized": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSynchronized\\b",
+            "replace": "Synchronized",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidatedMin": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidatedMin\\b",
+            "replace": "ConsolidatedMin",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidatedMax": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidatedMax\\b",
+            "replace": "ConsolidatedMax",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidatedAvg": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidatedAvg\\b",
+            "replace": "ConsolidatedAvg",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidatedCount": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidatedCount\\b",
+            "replace": "ConsolidatedCount",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ConsolidatedCountUnique": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bConsolidatedCountUnique\\b",
+            "replace": "ConsolidatedCountUnique",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeATTRN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeATTRN\\b",
+            "replace": "CubeATTRN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeATTRS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeATTRS\\b",
+            "replace": "CubeATTRS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionATTRN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionATTRN\\b",
+            "replace": "DimensionATTRN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionATTRS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionATTRS\\b",
+            "replace": "DimensionATTRS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ISUNDEFINEDCELLVALUE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bISUNDEFINEDCELLVALUE\\b",
+            "replace": "ISUNDEFINEDCELLVALUE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "UNDEFINEDCELLVALUE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bUNDEFINEDCELLVALUE\\b",
+            "replace": "UNDEFINEDCELLVALUE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetOutputEscapeDoubleQuote": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSetOutputEscapeDoubleQuote\\b",
+            "replace": "SetOutputEscapeDoubleQuote",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ATTRNL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bATTRNL\\b",
+            "replace": "ATTRNL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ATTRSL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bATTRSL\\b",
+            "replace": "ATTRSL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeAttrDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeAttrDelete\\b",
+            "replace": "CubeAttrDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeAttrInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeAttrInsert\\b",
+            "replace": "CubeAttrInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeAttrPutN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeAttrPutN\\b",
+            "replace": "CubeAttrPutN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeAttrPutS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeAttrPutS\\b",
+            "replace": "CubeAttrPutS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeATTRNL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeATTRNL\\b",
+            "replace": "CubeATTRNL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeATTRSL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeATTRSL\\b",
+            "replace": "CubeATTRSL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionAttrDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionAttrDelete\\b",
+            "replace": "DimensionAttrDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionAttrInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionAttrInsert\\b",
+            "replace": "DimensionAttrInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionAttrPutN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionAttrPutN\\b",
+            "replace": "DimensionAttrPutN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionAttrPutS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionAttrPutS\\b",
+            "replace": "DimensionAttrPutS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionATTRNL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionATTRNL\\b",
+            "replace": "DimensionATTRNL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionATTRSL": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionATTRSL\\b",
+            "replace": "DimensionATTRSL",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellIncrementN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellIncrementN\\b",
+            "replace": "CellIncrementN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FormatDate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bFormatDate\\b",
+            "replace": "FormatDate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NewDateFormatter": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bNewDateFormatter\\b",
+            "replace": "NewDateFormatter",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ParseDate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bParseDate\\b",
+            "replace": "ParseDate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementComponentAddDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementComponentAddDirect\\b",
+            "replace": "DimensionElementComponentAddDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementComponentDeleteDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementComponentDeleteDirect\\b",
+            "replace": "DimensionElementComponentDeleteDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementDeleteDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementDeleteDirect\\b",
+            "replace": "DimensionElementDeleteDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionElementInsertDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionElementInsertDirect\\b",
+            "replace": "DimensionElementInsertDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionUpdateDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionUpdateDirect\\b",
+            "replace": "DimensionUpdateDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionTopElementInsert": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionTopElementInsert\\b",
+            "replace": "DimensionTopElementInsert",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DimensionTopElementInsertDirect": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bDimensionTopElementInsertDirect\\b",
+            "replace": "DimensionTopElementInsertDirect",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeRuleAppend": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeRuleAppend\\b",
+            "replace": "CubeRuleAppend",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CubeRuleDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCubeRuleDestroy\\b",
+            "replace": "CubeRuleDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerSandboxesDelete": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerSandboxesDelete\\b",
+            "replace": "ServerSandboxesDelete",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerSandboxExists": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerSandboxExists\\b",
+            "replace": "ServerSandboxExists",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerSandboxGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerSandboxGet\\b",
+            "replace": "ServerSandboxGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ServerSandboxListCountGet": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bServerSandboxListCountGet\\b",
+            "replace": "ServerSandboxListCountGet",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "AssociateCAMIDToGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bAssociateCAMIDToGroup\\b",
+            "replace": "AssociateCAMIDToGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellSecurityCubeCreate": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellSecurityCubeCreate\\b",
+            "replace": "CellSecurityCubeCreate",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CellSecurityCubeDestroy": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bCellSecurityCubeDestroy\\b",
+            "replace": "CellSecurityCubeDestroy",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RemoveCAMIDAssociation": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRemoveCAMIDAssociation\\b",
+            "replace": "RemoveCAMIDAssociation",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "RemoveCAMIDAssociationFromGroup": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bRemoveCAMIDAssociationFromGroup\\b",
+            "replace": "RemoveCAMIDAssociationFromGroup",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SecurityOverlayCreateGlobalDefault": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSecurityOverlayCreateGlobalDefault\\b",
+            "replace": "SecurityOverlayCreateGlobalDefault",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SecurityOverlayDestroyGlobalDefault": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSecurityOverlayDestroyGlobalDefault\\b",
+            "replace": "SecurityOverlayDestroyGlobalDefault",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SecurityOverlayGlobalLockNode": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bSecurityOverlayGlobalLockNode\\b",
+            "replace": "SecurityOverlayGlobalLockNode",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ExecuteJavaN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bExecuteJavaN\\b",
+            "replace": "ExecuteJavaN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ExecuteJavaS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bExecuteJavaS\\b",
+            "replace": "ExecuteJavaS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELISANC": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELISANC\\b",
+            "replace": "ELISANC",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ELISCOMP": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bELISCOMP\\b",
+            "replace": "ELISCOMP",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "EvalJavaN": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bEvalJavaN\\b",
+            "replace": "EvalJavaN",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "EvalJavaS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys1.loose"],
+            "find": "(?i)\\bEvalJavaS\\b",
+            "replace": "EvalJavaS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NOW": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bNOW\\b",
+            "replace": "NOW",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "TIME": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bTIME\\b",
+            "replace": "TIME",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "CONTINUE": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bCONTINUE\\b",
+            "replace": "CONTINUE",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ChoreQuit": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bChoreQuit\\b",
+            "replace": "ChoreQuit",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ItemSkip": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bItemSkip\\b",
+            "replace": "ItemSkip",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessBreak": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bProcessBreak\\b",
+            "replace": "ProcessBreak",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessError": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bProcessError\\b",
+            "replace": "ProcessError",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessQuit": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bProcessQuit\\b",
+            "replace": "ProcessQuit",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DeleteAllPersistentFeeders": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bDeleteAllPersistentFeeders\\b",
+            "replace": "DeleteAllPersistentFeeders",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SecurityRefresh": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bSecurityRefresh\\b",
+            "replace": "SecurityRefresh",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "BatchUpdateStart": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bBatchUpdateStart\\b",
+            "replace": "BatchUpdateStart",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SaveDataAll": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bSaveDataAll\\b",
+            "replace": "SaveDataAll",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ISLEAF": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bISLEAF\\b",
+            "replace": "ISLEAF",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "UNDEF": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bUNDEF\\b",
+            "replace": "UNDEF",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "UNDEFVALS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bUNDEFVALS\\b",
+            "replace": "UNDEFVALS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "STET": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bSTET\\b",
+            "replace": "STET",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SetODBCUnicodeInterface": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bSetODBCUnicodeInterface\\b",
+            "replace": "SetODBCUnicodeInterface",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "GetProcessErrorFileDirectory": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bGetProcessErrorFileDirectory\\b",
+            "replace": "GetProcessErrorFileDirectory",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "GetProcessErrorFilename": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bGetProcessErrorFilename\\b",
+            "replace": "GetProcessErrorFilename",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceSAPUsingRoleAuths": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceSAPUsingRoleAuths\\b",
+            "replace": "DataSourceSAPUsingRoleAuths",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceSAPUsingTexts": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceSAPUsingTexts\\b",
+            "replace": "DataSourceSAPUsingTexts",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceNameForServer": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceNameForServer\\b",
+            "replace": "DatasourceNameForServer",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceNameForClient": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceNameForClient\\b",
+            "replace": "DatasourceNameForClient",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceType": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceType\\b",
+            "replace": "DatasourceType",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceUsername": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceUsername\\b",
+            "replace": "DatasourceUsername",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourcePassword": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourcePassword\\b",
+            "replace": "DatasourcePassword",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceQuery": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceQuery\\b",
+            "replace": "DatasourceQuery",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceCubeview": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceCubeview\\b",
+            "replace": "DatasourceCubeview",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceDimensionSubset": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceDimensionSubset\\b",
+            "replace": "DatasourceDimensionSubset",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceASCIIDelimiter": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceASCIIDelimiter\\b",
+            "replace": "DatasourceASCIIDelimiter",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceASCIIDecimalSeparator": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceASCIIDecimalSeparator\\b",
+            "replace": "DatasourceASCIIDecimalSeparator",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceASCIIThousandSeparator": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceASCIIThousandSeparator\\b",
+            "replace": "DatasourceASCIIThousandSeparator",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceASCIIQuoteCharacter": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceASCIIQuoteCharacter\\b",
+            "replace": "DatasourceASCIIQuoteCharacter",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DatasourceASCIIHeaderRecords": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDatasourceASCIIHeaderRecords\\b",
+            "replace": "DatasourceASCIIHeaderRecords",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "Value_Is_String": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bValue_Is_String\\b",
+            "replace": "Value_Is_String",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NValue": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bNValue\\b",
+            "replace": "NValue",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SValue": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bSValue\\b",
+            "replace": "SValue",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "OnMinorErrorDoItemSkip": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bOnMinorErrorDoItemSkip\\b",
+            "replace": "OnMinorErrorDoItemSkip",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MinorErrorLogMax": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bMinorErrorLogMax\\b",
+            "replace": "MinorErrorLogMax",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOCatalog": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOCatalog\\b",
+            "replace": "DataSourceODBOCatalog",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOConnectionString": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOConnectionString\\b",
+            "replace": "DataSourceODBOConnectionString",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOCubeName": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOCubeName\\b",
+            "replace": "DataSourceODBOCubeName",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOHierarchyName": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOHierarchyName\\b",
+            "replace": "DataSourceODBOHierarchyName",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOLocation": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOLocation\\b",
+            "replace": "DataSourceODBOLocation",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOProvider": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOProvider\\b",
+            "replace": "DataSourceODBOProvider",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOSAPClientID": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOSAPClientID\\b",
+            "replace": "DataSourceODBOSAPClientID",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataSourceODBOSAPClientLanguage": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataSourceODBOSAPClientLanguage\\b",
+            "replace": "DataSourceODBOSAPClientLanguage",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "DataMinorErrorCount": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bDataMinorErrorCount\\b",
+            "replace": "DataMinorErrorCount",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "MetadataMinorErrorCount": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bMetadataMinorErrorCount\\b",
+            "replace": "MetadataMinorErrorCount",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ProcessReturnCode": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bProcessReturnCode\\b",
+            "replace": "ProcessReturnCode",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "PrologMinorErrorCount": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bPrologMinorErrorCount\\b",
+            "replace": "PrologMinorErrorCount",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NumericGlobalVariable": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bNumericGlobalVariable\\b",
+            "replace": "NumericGlobalVariable",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "StringGlobalVariable": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bStringGlobalVariable\\b",
+            "replace": "StringGlobalVariable",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "NumericSessionVariable": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bNumericSessionVariable\\b",
+            "replace": "NumericSessionVariable",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "StringSessionVariable": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
+            "find": "(?i)\\bStringSessionVariable\\b",
+            "replace": "StringSessionVariable",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FEEDERS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys4.loose"],
+            "find": "(?i)\\bFEEDERS\\b",
+            "replace": "FEEDERS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "FEEDSTRINGS": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys4.loose"],
+            "find": "(?i)\\bFEEDSTRINGS\\b",
+            "replace": "FEEDSTRINGS",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "SKIPCHECK": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys4.loose"],
+            "find": "(?i)\\bSKIPCHECK\\b",
+            "replace": "SKIPCHECK",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "If": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bIf\\b",
+            "replace": "If",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "ElseIf": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bElseIf\\b",
+            "replace": "ElseIf",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "Else": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bElse\\b",
+            "replace": "Else",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "EndIf": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bEndIf\\b",
+            "replace": "EndIf",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "While": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bWhile\\b",
+            "replace": "While",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "End": {
+            "scope_filter": ["source.tm1", "!keyword.control.loose"],
+            "find": "(?i)\\bEnd\\b",
+            "replace": "End",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        // TM1 Functions If-related
+        "If_MixedCase": {
+            "scope_filter": ["source.tm1", "!keyword.control"],
+            "find": "\\bIF\\b",
+            "replace": "If",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "IF_UpperCase": {
+            "scope_filter": ["source.tm1", "!keyword.control"],
+            "find": "\\bIf\\b",
+            "replace": "IF",
+            "greedy": true,
+            "greedy_scope": true
+        }
+    }
+}

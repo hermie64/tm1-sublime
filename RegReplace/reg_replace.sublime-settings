@@ -1,0 +1,64 @@
+{
+    ////////////////////////////////////////////////////////////////
+    // See reg_replace_rules.sublime-settings for regex rules.
+    ////////////////////////////////////////////////////////////////
+
+    // Use sub notify if available
+    "use_sub_notify": true,
+
+    // If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,
+    // if the file name matches a file pattern, the sequence will be applied before the file is saved.
+    // RegReplace will apply all sequences that apply to a given file in the order they appear below.
+    "on_save": false,
+
+    // Highlight visual settings
+    "on_save_highlight_scope": "invalid",
+    "on_save_highlight_style": "outline",
+
+    // on_save replacements
+    "on_save_sequences": [
+        // An example on_save event that removes dangling commas from json files
+        // - file_regex: an array of regex strings that must match the file for the sequence to be applied
+        // - case: regex case sensitivity (true|false) false is default (this setting is optional)
+        // - file_pattern: an array of file patterns that must match for the sequence to be applied
+        // - sequence: an array of replacement definitions to be applied on saving the file
+        // - multi_pass: perform multiple passes on file to catch all regex instances
+        // - action: (mark|fold|unfold) instead of replace.  Only one action can be used
+        {
+            "file_regex": [".*\\.sublime-(settings|commands|menu|keymap|mousemap|theme|build|project|completions|commands)"],
+            "file_pattern": ["*.json"],
+            "sequence": ["remove_json_dangling_commas"]
+        },
+        // An example on_save_sequence that targets all files and trims trailing spaces
+        // - file_pattern: an array of file patterns that must match for the sequence to be applied
+        // - sequence: an array of replacement definitions to be applied on saving the file
+        {"file_pattern": ["*"], "sequence": ["remove_trailing_spaces"]}
+    ],
+
+    // Show replace results in panel
+    "results_in_panel": false,
+
+    // Maximum sweep threshold for multi-pass
+    "multi_pass_max_sweeps": 100,
+
+    // Color? (scope)
+    "find_highlight_color": "invalid",
+
+    // Highlight style? (outline|solid|underline)
+    "find_highlight_style": "outline",
+
+    // Search under selection(s) if and only if exists
+    "selection_only": true,
+
+    // Use the regex module for regular expression.
+    // https://pypi.python.org/pypi/regex
+    "use_regex_module": false,
+
+    // When "use_regex_module" is enabled, select which version of the regex module to use (0 or 1).
+    // See documentation to understand the differences: https://pypi.python.org/pypi/regex.
+    "regex_module_version": 0,
+
+    // Use extended backreferences (works with Python re or regex)
+    // See backref docs for more info: http://facelessuser.github.io/backrefs/.
+    "extended_back_references": false
+}
