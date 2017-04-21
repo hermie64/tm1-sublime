@@ -33,7 +33,7 @@ The Sublime TM1 syntax highlighter highlights all functions regardless of their 
 These italics are not really in your way when reading code, but still visible enough to notice that the function is not written "correctly".  
 I included an additional version of the syntax highlighter that will show these “incorrect” functions with inversed colors so that these really stand out.  
 ![screenshot](Other_Assets/function_inverse.png "")
-4. I included an additional feature that will automatically convert all functions to the form as stated in the reference manual.  
+4. I included an additional feature that will automatically convert all functions to the form as stated in the IBM Cognos TM1 Reference Guide.  
 You simply run a command and everything will be adjusted to correct and consistent form.  
 ![screenshot](Other_Assets/function_regrep.png "")  
 ![screenshot](Other_Assets/function_correct.png "")
