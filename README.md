@@ -82,8 +82,9 @@ Shortcut: `Ctrl+/`
 ![screenshot](Other_Assets/comment.png "")
 5. I pre-configured Sublime Text so that:  
   a. Trailing whitespace is automatically trimmed on save.  
-  b. If not present, an empty new line at eof is created on save.
-10.	If you don’t like the default font of Sublime Text, here are couple of good suggestions for coding fonts: http://t3n.de/news/coding-fonts-8-besten-schriften-678847/  
+  b. If not present, an empty new line at eof is created on save.  
+See file `Other_Asets\Preferences.sublime-settings`
+6.	If you don’t like the default font of Sublime Text, here are couple of good suggestions for coding fonts: http://t3n.de/news/coding-fonts-8-besten-schriften-678847/  
 I’m using for example the “Input” font and that’s also the font you see in the screenshots. 
 
 ## TODO
