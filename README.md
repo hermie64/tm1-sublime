@@ -87,9 +87,9 @@ Shortcut: `Ctrl+/`
 I’m using for example the “Input” font and that’s also the font you see in the screenshots. 
 
 ## TODO
-1. Code suggestions will be given as you type and code snippets can be inserted (tab key will allow you to jump from argument to argument).  
+1. __Code suggestions__ will be given as you type and __code snippets__ can be inserted (tab key will allow you to jump from argument to argument).  
 ![screenshot](Other_Assets/code_suggestion.png "")  
 ![screenshot](Other_Assets/code_snippet.png "")
-2. Since Sublime Text includes a Python-based plugin API, I’m currently investigating the options to incorporate a Python-based interface to the TM1 REST API (see https://github.com/MariusWirtz/TM1py) as a Sublime Text plugin.  
+2. Since Sublime Text includes a Python-based plugin API, I’m currently investigating the options to incorporate a Python-based __interface to the TM1 REST API__ (see https://github.com/MariusWirtz/TM1py) as a Sublime Text plugin.  
 That would enable “hot deployment” of processes and rules through the TM1 REST API. This means that you could code/update processes and rules in Sublime Text and deploy directly to TM1 without a restart.
-3. TM1 code prettifier.
+3. TM1 __code prettifier__.
