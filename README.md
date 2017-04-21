@@ -82,7 +82,7 @@ Shortcut: `Ctrl+/`
 ![screenshot](Other_Assets/comment.png "")
 
 ## TODO
-1. Code completion: Code suggestions will be given as you type and code snippets can be inserted (tab key will allow you to jump from argument to argument).  
+1. Code suggestions will be given as you type and code snippets can be inserted (tab key will allow you to jump from argument to argument).  
 ![screenshot](Other_Assets/code_suggestion.png "")  
 ![screenshot](Other_Assets/code_snippet.png "")
 2. Since Sublime Text includes a Python-based plugin API, I’m currently investigating the options to incorporate a Python-based interface to the TM1 REST API (see https://github.com/MariusWirtz/TM1py) as a Sublime Text plugin.  
