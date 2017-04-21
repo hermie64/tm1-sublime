@@ -14,7 +14,7 @@ Other available color schemes are: `TM1_Sublime_Highlight_Loose` (see Feature 3)
 2. To assign TM1 syntax highlighting to a file: `View >> Syntax >> TM1`, or click current syntax in bottom-right corner, and choose `TM1`  
 ![screenshot](Other_Assets/assign.png "")
 3. Automatically convert all TM1 functions to capitalization as per IBM Cognos TM1 Reference Guide:  
-Shortcut: `Ctrl+Shift+P` >> type `tm1…`  
+Shortcut: `Ctrl+Shift+P` >> type `tm1…` and choose `Strict Naming`  
 ![screenshot](Other_Assets/regrep.png "")  
 Will be applied to whole file if no selection exists
 
