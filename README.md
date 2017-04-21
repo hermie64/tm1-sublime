@@ -62,7 +62,8 @@ Shortcut: `Ctrl+`;
 5. __Expand Selection to Quotes__: Expands selections to the closest containing pairs of single or double quotes  
 Shortcut: `Ctrl+’`  
 ![screenshot](Other_Assets/expand_selection.png "")
-6. __SideBarEnhancements__: Enhancements to Sublime Text Side Bar
+6. __SideBarEnhancements__: Enhancements to Sublime Text Side Bar  
+![screenshot](Other_Assets/sidebar_enhancements.png "")
 7. __Trimmer__: For cleaning up whitespace  
 Shortcut: Trim Trailing Whitespace: `Ctrl+Alt+S`  
 ![screenshot](Other_Assets/trimmer.png "")
