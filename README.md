@@ -36,12 +36,19 @@ Shortcut: __Ctrl+Shift+P__ >> type __tm1…__
 ## Recommended Sublime Text Packages
 1. __Package Control__: The Sublime Text package manager: https://packagecontrol.io/
 2. __Alignment__: Alignment of selections  
-Shortcut: __Ctrl+Alt+A__
+Shortcut: __Ctrl+Alt+A__  
+_Before_:  
+![screenshot](Other_Assets/alignment_before.png "")  
+_After_:  
+![screenshot](Other_Assets/alignment_after.png "")
 3. __All Autocomplete__: Extends the default autocomplete to find matches in all open files. By default Sublime only considers words found in the current file
 4. __AppendSemiColon__: Appends semi colon at the end of a line (regardless of where the cursor is positioned on a line)
 Shortcut: __Ctrl+__;
 5. __Expand Selection to Quotes__: Expands selections to the closest containing pairs of single or double quotes  
-Shortcut: __Ctrl+’__
-6. __SideBarEnhancements__: Enhancements to Sublime Text Side Bar
-7. __Trimmer__: For cleaning up whitespace.  
-Shortcut: Trim Trailing Whitespace: __Ctrl+Alt+S__
+Shortcut: __Ctrl+’__  
+![screenshot](Other_Assets/expand_selection.png "")
+6. __SideBarEnhancements__: Enhancements to Sublime Text Side Bar  
+![screenshot](Other_Assets/sidebar_enhancements.png "")
+7. __Trimmer__: For cleaning up whitespace  
+Shortcut: Trim Trailing Whitespace: __Ctrl+Alt+S__  
+![screenshot](Other_Assets/trimmer.png "")
