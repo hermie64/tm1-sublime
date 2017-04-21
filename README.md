@@ -9,7 +9,9 @@ IBM Cognos TM1 syntax highlighting for Sublime Text
 3. Copy the two files in folder __RegReplace__ to `..Sublime Text\Data\Packages\User` (reguires RegReplace Sublime Text Package)
 
 ## Usage
-1. Change 
+1. Change color scheme to TM1_Sublime: `Preferences >> Color Scheme >> User >> TM1 >> TM1_Sublime`  
+Other available color schemes are: `TM1_Sublime_Highlight_Loose` (see Feature 3) and `TM1_NotepadPP`
+2. If you Copy and Paste data to a new file in
 
 ## Features
 1.	The TM1 syntax highlighting is based on the Notepad++ version, but it has a dark theme to improve on readability.  
