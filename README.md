@@ -11,7 +11,12 @@ IBM Cognos TM1 syntax highlighting for Sublime Text
 ## Usage
 1. Change color scheme to TM1: `Preferences >> Color Scheme >> User >> TM1 >> TM1_Sublime`  
 Other available color schemes are: `TM1_Sublime_Highlight_Loose` (see Feature 3) and `TM1_NotepadPP`
-2. To assign TM1 syntax highlighting to a file: `View >> Syntax >> TM1`, or click current syntax in bottom-right corner, and choose TM1.
+2. To assign TM1 syntax highlighting to a file: `View >> Syntax >> TM1`, or click current syntax in bottom-right corner, and choose `TM1`  
+![screenshot](Other_Assets/assign.png "")
+3. Automatically convert all TM1 functions to capitalization as per IBM Cognos TM1 Reference Guide:  
+Shortcut: `Ctrl+Shift+P` >> type `tm1…`  
+![screenshot](Other_Assets/regrep.png "")  
+Will be applied to whole file if no selection exists
 
 ## Features
 1.	The TM1 syntax highlighting is based on the Notepad++ version, but it has a dark theme to improve on readability.  
@@ -41,27 +46,24 @@ You simply run a command and everything will be adjusted to correct and consiste
 ![screenshot](Other_Assets/function_correct.png "")
 
 ## Required Sublime Text package
-1. __RegReplace__: Plugin for “Sublime Text” that allows the creating of commands consisting of sequences of find and replace instructions.  
-Shortcut: __Ctrl+Shift+P__ >> type __tm1…__  
-![screenshot](Other_Assets/regrep.png "")  
-Applies to whole file if no selection exists.
+1. __RegReplace__: Plugin for “Sublime Text” that allows the creating of commands consisting of sequences of find and replace instructions.
 
 ## Recommended Sublime Text Packages
 1. __Package Control__: The Sublime Text package manager: https://packagecontrol.io/
 2. __Alignment__: Alignment of selections  
-Shortcut: __Ctrl+Alt+A__  
+Shortcut: `Ctrl+Alt+A`  
 _Before_:  
 ![screenshot](Other_Assets/alignment_before.png "")  
 _After_:  
 ![screenshot](Other_Assets/alignment_after.png "")
 3. __All Autocomplete__: Extends the default autocomplete to find matches in all open files. By default Sublime only considers words found in the current file
 4. __AppendSemiColon__: Appends semi colon at the end of a line (regardless of where the cursor is positioned on a line)
-Shortcut: __Ctrl+__;
+Shortcut: `Ctrl+`;
 5. __Expand Selection to Quotes__: Expands selections to the closest containing pairs of single or double quotes  
-Shortcut: __Ctrl+’__  
+Shortcut: `Ctrl+’`  
 ![screenshot](Other_Assets/expand_selection.png "")
 6. __SideBarEnhancements__: Enhancements to Sublime Text Side Bar  
 ![screenshot](Other_Assets/sidebar_enhancements.png "")
 7. __Trimmer__: For cleaning up whitespace  
-Shortcut: Trim Trailing Whitespace: __Ctrl+Alt+S__  
+Shortcut: Trim Trailing Whitespace: `Ctrl+Alt+S`  
 ![screenshot](Other_Assets/trimmer.png "")
