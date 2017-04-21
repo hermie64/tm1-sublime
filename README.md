@@ -85,6 +85,6 @@ Shortcut: `Ctrl+/`
 1. Code completion: Code suggestions will be given as you type and code snippets can be inserted (tab key will allow you to jump from argument to argument).  
 ![screenshot](Other_Assets/code_suggestion.png "")  
 ![screenshot](Other_Assets/code_snippet.png "")
-2. Since Sublime Text includes a Python-based plugin API, I’m currently investigating the options to incorporate a Python-based interface to the TM1 REST API as a Sublime Text plugin, see https://github.com/MariusWirtz/TM1py.  
+2. Since Sublime Text includes a Python-based plugin API, I’m currently investigating the options to incorporate a Python-based interface to the TM1 REST API (see https://github.com/MariusWirtz/TM1py) as a Sublime Text plugin.  
 That would enable “hot deployment” of processes and rules through the TM1 REST API. This means that you could code/update processes and rules in Sublime Text and deploy directly to TM1 without a restart.
 3. TM1 code prettifier.
