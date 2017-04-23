@@ -4,9 +4,16 @@ IBM Cognos TM1 syntax highlighting for Sublime Text
 ![screenshot](Other_Assets/intro.png "TM1 syntax highlighting in Sublime Text")
 
 ## Installation
-1. Get Sublime Text [here](https://www.sublimetext.com/3) (also available as portable version for Windows)
+For syntax highlighting you only need to go through steps 1 and 2.  
+If you want to use feature 4 to convert functions to the form as in the IBM Cognos TM1 Reference Guide, you additionally need to go through steps 3 and 4.  
+
+1. Get Sublime Text [here](https://www.sublimetext.com/3) (also available as portable version for Windows) and install it
 2. Copy folder __TM1__ to `..\Sublime Text\Data\Packages\User\TM1`
-3. Copy the three files in folder __RegReplace__ to `..Sublime Text\Data\Packages\User` (requires RegReplace Sublime Text Package)
+3. The feature to convert functions to the form as in IBM Cognos TM1 Reference Guide, requires installation of the RegReplace package (plugin). The easiest way to deal with the installation of plugins in Sublime Text is via "Package Control" (plugin manager for Sublime Text).  
+  a. So first install __Package Control__. Instructions can be found [here](https://www.granneman.com/webdev/editors/sublime-text/packages/how-to-install-and-use-package-control/).  
+  b. Next, install required __RegReplace__ package & recommended packages. See aforementioned link and then the instructions under "Usage" (regarding step 2, when typing, look for "Install Package").  
+  A video that shows steps a and b is available [here](https://youtu.be/NID3p0okzYQ).
+4. Copy the three files in folder __RegReplace__ to `..Sublime Text\Data\Packages\User` (requires RegReplace Sublime Text Package)
 
 ## Usage
 1. Set color scheme for TM1 syntax highlighting: `Preferences >> Color Scheme >> User >> TM1 >> TM1_Sublime`  
