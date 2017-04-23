@@ -53,7 +53,7 @@ You simply run a command and everything will be adjusted to correct and consiste
 ![screenshot](Other_Assets/function_correct.png "")
 
 ## Required Sublime Text package
-1. __RegReplace__: Plugin for Sublime Text for creating commands consisting of sequences of find and replace instructions
+1. __RegReplace__: Sublime Text plugin for creating regex (regular expressions) find and replace sequences
 
 ## Recommended Sublime Text Packages
 1. __Package Control__: The Sublime Text package manager: https://packagecontrol.io/
