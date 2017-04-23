@@ -7,7 +7,7 @@ IBM Cognos TM1 syntax highlighting for Sublime Text
 For syntax highlighting you only need to go through steps 1 and 2.  
 If you want to use feature 4 to convert functions to the form as in the IBM Cognos TM1 Reference Guide, you additionally need to follow steps 3 and 4.  
 
-1. Get Sublime Text [here](https://www.sublimetext.com/3) (also available as portable version for Windows) and install it
+1. Get Sublime Text [here](https://www.sublimetext.com/3) and install it (also available as portable version for Windows)
 2. Copy GitHub folder __TM1__ to `..\Sublime Text\Data\Packages\User\TM1`
 3. The feature to convert functions to the form as in IBM Cognos TM1 Reference Guide, requires installation of the __RegReplace__ package (plugin). The easiest way to deal with the installation of plugins in Sublime Text is via "Package Control" (plugin manager for Sublime Text).  
   a. So first install __Package Control__. Instructions can be found [here](https://www.granneman.com/webdev/editors/sublime-text/packages/how-to-install-and-use-package-control/).  
