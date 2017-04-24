@@ -17,7 +17,8 @@ If you want to use feature 4 to convert functions to the form as in the IBM Cogn
 
 ## Usage
 1. Set color scheme for TM1 syntax highlighting: `Preferences >> Color Scheme >> User >> TM1 >> TM1_Sublime`  
-Other available color schemes are: `TM1_Sublime_Highlight_Loose` (see Feature 3) and `TM1_NotepadPP` (TM1_NotepadPP theme was created by [Ambrus Vancso](https://github.com/iamambrus/tm1-sublime))
+Other available color schemes are: `TM1_Sublime_Highlight_Loose` (see Feature 3) and `TM1_NotepadPP`  
+(TM1_NotepadPP theme was created by [Ambrus Vancso](https://github.com/iamambrus/tm1-sublime))
 2. To assign TM1 syntax highlighting to a file: `View >> Syntax >> TM1`, or click current syntax in bottom-right corner, and choose `TM1`  
 ![screenshot](Other_Assets/assign.png "")
 3. Automatically convert all TM1 functions to capitalization as per IBM Cognos TM1 Reference Guide:  
