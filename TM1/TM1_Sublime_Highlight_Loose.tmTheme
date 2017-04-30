@@ -226,17 +226,41 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Keyword Control Loose</string>
+			<string>Keyword Control loose</string>
 			<key>scope</key>
 			<string>keyword.control.loose</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
 				<string>#272822</string>
-				<key>fontStyle</key>
-				<string> italic</string>
 				<key>background</key>
 				<string>#A6E22E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>TM1 pro internal</string>
+			<key>scope</key>
+			<string>tm1.pro.internal</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#FD971F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>TM1 rux internal</string>
+			<key>scope</key>
+			<string>tm1.rux.internal</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FD971F</string>
+				<key>background</key>
+				<string></string>
 			</dict>
 		</dict>
 	</array>

@@ -229,6 +229,32 @@
 				<string>#A6E22E</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>TM1 pro internal</string>
+			<key>scope</key>
+			<string>tm1.pro.internal</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#FD971F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>TM1 rux internal</string>
+			<key>scope</key>
+			<string>tm1.rux.internal</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FD971F</string>
+				<key>background</key>
+				<string></string>
+			</dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>57E9F1F4-9556-47AF-A24D-61BFA4E53138</string>
