@@ -1881,6 +1881,13 @@
             "greedy": true,
             "greedy_scope": true
         },
+        "Break": {
+            "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys2.loose"],
+            "find": "(?i)\\bBreak\\b",
+            "replace": "Break",
+            "greedy": true,
+            "greedy_scope": true
+        },
         "SetODBCUnicodeInterface": {
             "scope_filter": ["source.tm1", "!support.function.builtin.tm1.keys3.loose"],
             "find": "(?i)\\bSetODBCUnicodeInterface\\b",
@@ -2229,6 +2236,77 @@
             "scope_filter": ["source.tm1", "!keyword.control"],
             "find": "\\bIf\\b",
             "replace": "IF",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        // TM1 Functions Prettify
+        "replace_tabs_with_two_spaces": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "\\t",
+            "replace": "  ",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "spaces_around_operator": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(@?<>|@?>=|@?<=|@?>|@?<|@?=|&|%|\\+|-|\\*|/|\\\\|\\^|\\||\\(|\\)|,)",
+            "replace": " \\1 ",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_spaces_after_function": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(\\w)[ ]{1,}(\\()",
+            "replace": "\\1\\2",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_multiple_spaces": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(\\S)[ ]{2,}",
+            "replace": "\\1 ",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_spaces_before_comma": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "([\\w'\\()])[ ]{1,}(,)",
+            "replace": "\\1\\2",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_spaces_before_semicolon": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "[ ]{1,}(;)",
+            "replace": "\\1",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_space_within_empty_parenthesis": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(\\() (\\))",
+            "replace": "\\1\\2",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "no_space_after_tilde": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(~)[ ]{1,}",
+            "replace": "\\1",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "space_after_opening_parenthesis": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "(\\()([\\w'])",
+            "replace": "\\1 \\2",
+            "greedy": true,
+            "greedy_scope": true
+        },
+        "trim_trailing_spaces": {
+            "scope_filter": ["source.tm1", "-!comment", "-!string.quoted", "-!tm1.pro.internal"],
+            "find": "[ \\t]+$",
+            "replace": "",
             "greedy": true,
             "greedy_scope": true
         }

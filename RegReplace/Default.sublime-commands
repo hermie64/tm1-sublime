@@ -263,6 +263,7 @@
             "UNDEF",
             "UNDEFVALS",
             "STET",
+            "Break",
             "SetODBCUnicodeInterface",
             "GetProcessErrorFileDirectory",
             "GetProcessErrorFilename",
@@ -327,6 +328,22 @@
         "command": "reg_replace",
         "args": {"replacements": [
             "IF_UpperCase"
+            ]}
+    },
+    {
+        "caption": "RegReplace: TM1 Functions - Prettify",
+        "command": "reg_replace",
+        "args": {"replacements": [
+            "replace_tabs_with_two_spaces",
+            "spaces_around_operator",
+            "no_spaces_after_function",
+            "no_multiple_spaces",
+            "no_spaces_before_comma",
+            "no_spaces_before_semicolon",
+            "no_space_within_empty_parenthesis",
+            "no_space_after_tilde",
+            "space_after_opening_parenthesis",
+            "trim_trailing_spaces"
             ]}
     }
 ]
